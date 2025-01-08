@@ -2,17 +2,11 @@
 @tailwind components;
 @tailwind utilities;
 
-/*:root {*/
-/*  --background: #ffffff;*/
-/*  --foreground: #171717;*/
-/*}*/
-/**/
-/*@media (prefers-color-scheme: dark) {*/
-/*  :root {*/
-/*    --background: #0a0a0a;*/
-/*    --foreground: #ededed;*/
-/*  }*/
-/*}*/
+@layer components {
+	.heroButton {
+		@apply px-4 py-2 mt-4 border border-[#242424] rounded-full uppercase text-xs tracking-widest text-gray-500 transition-all hover:border-[#28E98C]/40 hover:text-[#28E98C]/40
+	}
+}
 
 /*body {*/
 /*  color: var(--foreground);*/
