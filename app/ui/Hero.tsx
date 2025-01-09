@@ -20,13 +20,13 @@ export default function Hero() {
       <Image
         src="/profile_img.png"
         alt="Screenshots of the dashboard project showing desktop version"
-        width={90}
-        height={90}
-        className='rounded-full'
+        width={70}
+        height={70}
+        className='rounded-full mb-10'
       />
-      <div className='z-20' >
-        <h2 className='text-sm uppercase text-gray-500 pb-2 tracking-[15px]'>Software Engineer</h2>
-        <h1 className='text-5xl lg:tex6xl font-semibold px-10'>
+      <div className='z-20 flex flex-col items-center justify-center' >
+        <h2 className='md:text-xs uppercase text-gray-500 pb-2 tracking-[15px]'>Software Engineer</h2>
+        <h1 className='text-2xl lg:tex6xl font-semibold px-10'>
           <span className='mr-3'>{text}</span>
           <Cursor cursorColor='#f7ab0a' />
         </h1>
