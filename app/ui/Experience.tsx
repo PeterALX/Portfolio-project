@@ -1,4 +1,3 @@
-import { motion } from "motion/react"
 import ExperienceCard from "./ExperienceCard"
 
 export default function Experience() {
