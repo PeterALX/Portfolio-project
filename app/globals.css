@@ -6,6 +6,7 @@
 	.heroButton {
 		@apply px-2 py-2 mt-4 border border-[#242424] rounded-full uppercase text-xs tracking-widest text-gray-500 transition-all hover:border-[#28E98C]/40 hover:text-[#28E98C]
 	}
+
 }
 
 /*body {*/

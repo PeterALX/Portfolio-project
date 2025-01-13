@@ -27,7 +27,7 @@ export default function ExperienceCard() {
         />
         <div className='px-0 md:px-0 flex flex-col items-center sm:items-start' >
           <h4 className="text-[18px] font-light mt-5">CEO of WamlambezCorp</h4>
-          <p className="font-light text-[12px] mt-1">NINNJAFAM</p>
+          <p className="font-light text-[12px] mt-1">Cracked devs</p>
           <div className="flex space-x-2 my-3 ">
             <Image
               src="/graphql.svg"
