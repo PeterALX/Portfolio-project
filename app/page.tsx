@@ -2,6 +2,7 @@ import About from "./ui/About";
 import Experience from "./ui/Experience";
 import Header from "./ui/Header";
 import Hero from "./ui/Hero";
+import Projects from "./ui/Projects";
 import Skills from "./ui/Skills";
 
 export default function Home() {
@@ -19,6 +20,9 @@ export default function Home() {
       </section>
       <section id="skills" className="snap-start">
         <Skills />
+      </section>
+      <section id="projects" className="snap-start">
+        <Projects />
       </section>
     </div>
   );
