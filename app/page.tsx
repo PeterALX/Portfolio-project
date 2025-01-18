@@ -1,4 +1,4 @@
-import { EnvelopeIcon, HomeModernIcon } from "@heroicons/react/24/solid"
+import { HomeModernIcon } from "@heroicons/react/24/solid"
 import Link from "next/link";
 import About from "./ui/About";
 import Contact from "./ui/Contact";
@@ -10,7 +10,7 @@ import Skills from "./ui/Skills";
 
 export default function Home() {
   return (
-    <div className="relative bg-[rgb(36,36,36)] text-white h-screen snap-y snap-mandatory overflow-scroll z-0 overflow-x-hidden scrollbar scrollbar-track-gray-400/20 scrollbar-thumb-[#28E98C]/80">
+    <div className="bg-[rgb(36,36,36)] text-white h-screen snap-y snap-mandatory overflow-scroll z-0 overflow-x-hidden scrollbar scrollbar-track-gray-400/20 scrollbar-thumb-[#28E98C]/80">
       <Header />
       <section id="hero" className="snap-start">
         <Hero />
