@@ -8,7 +8,8 @@ export default function Projects() {
       <h3 className="absolute top-20 uppercase tracking-[20px] text-gray-500 text-[18px]">
         Projects
       </h3>
-      <div className="projes flex overflow-y-hidden snap-x snap-mandatory z-20">
+      <div className="projes flex overflow-y-hidden snap-x snap-mandatory z-20
+        scrollbar scrollbar-track-gray-400/20 scrollbar-thumb-[#28E98C]/80">
         {
           projects.map((val) =>
             <div className="w-full h-screen text-center flex flex-col items-center justify-center key={val} flex-shrink-0 snap-center">

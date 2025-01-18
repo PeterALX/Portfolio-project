@@ -7,7 +7,12 @@
 		@apply px-2 py-2 mt-4 border border-[#242424] rounded-full uppercase text-xs tracking-widest text-gray-500 transition-all hover:border-[#28E98C]/40 hover:text-[#28E98C]
 	}
 
+	.contactInput {
+		@apply outline-none bg-slate-400/10 rounded-sm border-b px-3 py-[8px] border-[#242424] text-gray-500 placeholder-gray-500 transition-all focus:border-[#28E98C]/70 focus:text-[#28E98C] hover:border-[#28E98C]/70
+	}
+
 }
+
 
 /*body {*/
 /*  color: var(--foreground);*/
