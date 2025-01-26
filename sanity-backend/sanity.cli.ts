@@ -1,9 +1,10 @@
-import {defineCliConfig} from 'sanity/cli'
+//import 'dotenv/config'
+import { defineCliConfig } from 'sanity/cli'
 
 export default defineCliConfig({
   api: {
-    projectId: 'uwumnvw9',
-    dataset: 'production'
+    projectId: process.env.SANITY_STUDIO_PROJECT_ID!,
+    dataset: process.env.SANITY_STUDIO_DATASET || 'production',
   },
   /**
    * Enable auto-updates for studios.
