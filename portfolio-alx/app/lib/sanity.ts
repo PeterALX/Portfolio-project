@@ -3,10 +3,9 @@ import imageUrlBuilder from '@sanity/image-url'
 import { SanityImageSource } from "@sanity/image-url/lib/types/types";
 import { defineLive } from "next-sanity";
 
-
 const client = createClient({
-	projectId: "uwumnvw9",
-	dataset: "production",
+	projectId: process.env.NEXT_PUBLIC_SANITY_PROJECT_ID,
+	dataset: process.env.NEXT_PUBLIC_SANITY_DATASET,
 	apiVersion: "vX",
 	useCdn: false,
 });
