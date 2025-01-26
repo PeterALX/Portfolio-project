@@ -1,9 +1,27 @@
 import { PhoneIcon, MapPinIcon, EnvelopeIcon } from "@heroicons/react/24/solid"
-export default function Contact() {
+import { defineQuery } from 'next-sanity';
+import { sanityFetch } from "../lib/sanity";
+import EditingScreen from "./EditingScreen";
+import ErrorScreen from "./ErrorScreen";
+
+const CONTACT_QUERY = defineQuery(`*[_type == 'contactInfo']{phoneNumber, email, location}`);
+
+export default async function Contact() {
+  let contactInfo: any
+  try {
+    const { data } = await sanityFetch({
+      query: CONTACT_QUERY,
+    })
+    if (data.length === 0) return <EditingScreen sectionTitle="Contacts" />
+    contactInfo = data[0]
+  } catch (error) {
+    return (<ErrorScreen sectionTitle="Contacts" />)
+  }
+
   return (
     <div className="relative h-screen flex justify-center items-center">
       <h3 className="absolute top-20 uppercase tracking-[20px] text-gray-500 text-[18px] text-center">
-        Nivutie Nangos
+        Contact me
       </h3>
       <div className="flex flex-col items-center mt-24 px-10" >
         <h4 className="text-center font-semibold space-y-10 mb-4">
@@ -12,15 +30,15 @@ export default function Contact() {
         </h4>
         <div className="flex space-x-2 items-center">
           <PhoneIcon className="h-5 w-5 text-[#28E98C]/70 animate-pulse" />
-          <p className="text-sm">+123456789</p>
+          <p className="text-sm">{contactInfo.phoneNumber}</p>
         </div>
         <div className="flex space-x-2 items-center">
           <EnvelopeIcon className="h-5 w-5 text-[#28E98C]/70 animate-pulse" />
-          <p className="text-sm">mail@deez.com</p>
+          <p className="text-sm">{contactInfo.email}</p>
         </div>
         <div className="flex space-x-2 items-center mb-5">
           <MapPinIcon className="h-5 w-5 text-[#28E98C]/70 animate-pulse" />
-          <p className="text-sm">123, basedTown</p>
+          <p className="text-sm">{contactInfo.location}</p>
         </div>
         <form className="flex flex-col space-y-2" action="">
           <div className="flex space-x-2 ">

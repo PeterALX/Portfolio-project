@@ -1,32 +1,11 @@
-import { SocialIcon } from "react-social-icons"
 import * as motion from "motion/react-client"
-import { defineQuery } from "next-sanity";
-import { sanityFetch } from "../lib/sanity";
 import Image from 'next/image';
-import EditingHeader from "./EditingHeader";
-import ErrorHeader from "./ErrorHeader";
 
-const SOCIALS_QUERY = defineQuery(`*[_type == 'social']{title, url}`);
-export default async function Header() {
-  let socials: Array<any>
-  try {
-    const { data } = await sanityFetch({
-      query: SOCIALS_QUERY,
-    })
-    if (data.length === 0) return <EditingHeader />
-    socials = data
-  } catch (error) {
-    return (<ErrorHeader />)
-  }
-
-  const socialIconStyle = {
-    width: "48px",
-    height: "48px",
-  }
+export default function ErrorHeader() {
   return (
     <header className="sticky top-0 flex items-start justify-between max-w-7xl mx-auto xl:items-center p-5 px-0 md:px-32 xl:px-52 z-20" >
       <motion.div
-        className="flex flex-row items-center borde"
+        className="flex flex-row items-center p-[10px]"
         initial={{
           x: -500,
           opacity: 0,
@@ -41,18 +20,13 @@ export default async function Header() {
           duration: 1
         }}
       >
-        {
-          socials.map((social, idx) =>
-            <SocialIcon
-              key={idx}
-              target="_blank"
-              url={social.url}
-              fgColor="gray"
-              bgColor="transparent"
-              style={socialIconStyle}
-            />
-          )
-        }
+        <Image
+          src="/lownet.svg"
+          alt="connection Error"
+          className=''
+          width={28}
+          height={28}
+        />
       </motion.div>
       <motion.a
         initial={{
@@ -73,7 +47,7 @@ export default async function Header() {
       >
         <Image
           src="/mail.svg"
-          alt="Envelope Icon"
+          alt="Envelope icon"
           width={28}
           height={28}
         />

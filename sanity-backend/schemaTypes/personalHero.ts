@@ -30,9 +30,6 @@ export const personalHero = defineType({
     defineField({
       name: 'image',
       type: 'image',
-      options: {
-        hotspot: true,
-      },
       validation: (rule) => rule
         .required()
         .error('Weka mboto we mzee'),

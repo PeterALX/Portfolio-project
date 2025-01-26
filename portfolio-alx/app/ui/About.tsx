@@ -1,8 +1,21 @@
-"use client"
+import * as motion from "motion/react-client"
+import { defineQuery, PortableText } from "next-sanity"
+import { sanityFetch, urlFor } from "../lib/sanity"
+import EditingScreen from "./EditingScreen"
+import ErrorScreen from "./ErrorScreen"
 
-import { motion } from "motion/react"
-
-export default function About() {
+const ABOUT_QUERY = defineQuery('*[_type=="about"]{title, body, image}')
+export default async function About() {
+  let aboutMe: any
+  try {
+    const { data } = await sanityFetch({
+      query: ABOUT_QUERY,
+    })
+    if (data.length === 0) return <EditingScreen sectionTitle="About" />
+    aboutMe = data[0]
+  } catch (error) {
+    return (<ErrorScreen sectionTitle="About" />)
+  }
   return (
     <div className="h-screen flex flex-col relative text-center md:text-left md:flex-row
       max-w-7xl justify-evenly  mx-auto items-center px-0 md:px-20 xl:px-72 pt-20 md:pt-16 xl:pt-20">
@@ -24,7 +37,7 @@ export default function About() {
         viewport={{
           once: true
         }}
-        src="/hackerman.jpg"
+        src={urlFor(aboutMe.image).url()}
         className="-mb-20 md:mb-0 flex-shrink-0 w-56 h-56 rounded-full object-cover md:rounded-lg
         md:w-54 md:h-85 xl:w-[210px] xl:h-[310px] xl:rounded-md border border-[#28E98C]"
       />
@@ -47,12 +60,11 @@ export default function About() {
         }}
         className="space-y-4 px-5 md:px-10 pt-2">
         <h4 className="text-[16px] font-semibold">
-          I may not have been born in the darkness, nor was I molded by it.
+          {aboutMe.title}
         </h4>
-        <p className="text-[12px]">
-          Lorem, ipsum dolor sit amet consectetur adipisicing elit. Labore voluptas, autem alias accusantium non exercitationem sequi corrupti reiciendis dolorum, magni, tempore voluptatum error minima est qui sed molestiae iusto quia.
-          Lorem, ipsum dolor sit amet consectetur adipisicing elit. Labore voluptas, autem alias accusantium non exercitationem sequi corrupti reiciendis dolorum, magni, tempore voluptatum error minima est qui sed molestiae iusto quia.
-        </p>
+        <div className='px-4 md:px-0' >
+          <PortableText value={aboutMe.body} />
+        </div>
       </motion.div>
     </div>
   )

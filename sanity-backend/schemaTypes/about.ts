@@ -14,15 +14,13 @@ export const about = defineType({
     }),
     defineField({
       name: 'body',
-      type: 'string',
+      type: 'array',
+      of: [{ type: 'block' }],
       validation: (rule) => rule.required(),
     }),
     defineField({
       name: 'image',
       type: 'image',
-      options: {
-        hotspot: true
-      },
       validation: (rule) => rule.required()
     }),
   ]

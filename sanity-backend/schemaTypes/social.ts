@@ -15,15 +15,5 @@ export const social = defineType({
       type: 'url',
       validation: (rule) => rule.required(),
     }),
-    defineField({
-      name: 'icon',
-      type: 'image',
-      description: 'Only svg allowed',
-      options: {
-        accept: 'image/svg+xml'
-      },
-      validation: (rule) => rule
-        .required()
-    }),
   ]
 })

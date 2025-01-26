@@ -27,7 +27,7 @@ export default function Home() {
       <section id="projects" className="snap-start">
         <Projects />
       </section>
-      <section id="Contact" className="snap-start">
+      <section id="contact" className="snap-start">
         <Contact />
       </section>
       <Link href="#hero">

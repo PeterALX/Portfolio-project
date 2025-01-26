@@ -1,26 +1,31 @@
-"use client"
-import { motion } from "motion/react"
+import * as motion from "motion/react-client"
+import { urlFor } from "../lib/sanity"
 
-export default function Skill() {
+interface skillProps {
+  skill: any
+}
+export default function Skill({ skill }: skillProps) {
   return (
-    <div className="">
-      <motion.img
-        initial={{
-          rotate: 360,
-          y: -20,
-          opacity: 0
-        }}
-        whileInView={{
-          rotate: 0,
-          y: 0,
-          opacity: 1
-        }}
-        transition={{
-          duration: 1.2
-        }}
-        className='w-[42px] h-[42px]'
-        src="/graphql.svg"
+    <motion.div
+      initial={{
+        rotate: 360,
+        y: -20,
+        opacity: 0
+      }}
+      whileInView={{
+        rotate: 0,
+        y: 0,
+        opacity: 1
+      }}
+      transition={{
+        duration: 1.2
+      }}
+      className="flex items-center justify-center w-[42px] h-[42px] border border-[#666666]/70 rounded-full"
+    >
+      <img
+        className='w-[22px] h-[22px]'
+        src={urlFor(skill.icon).url()}
         alt="" />
-    </div>
+    </motion.div>
   )
 }

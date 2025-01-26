@@ -17,9 +17,6 @@ export const experience = defineType({
     defineField({
       name: 'companyImage',
       type: 'image',
-      options: {
-        hotspot: true
-      },
       validation: (rule) => rule.required(),
     }),
     defineField({
@@ -29,7 +26,7 @@ export const experience = defineType({
       validation: (rule) => rule.required(),
     }),
     defineField({
-      name: "Technologies",
+      name: "technologies",
       type: 'array',
       of: [{
         type: 'reference',

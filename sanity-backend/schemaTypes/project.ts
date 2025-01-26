@@ -11,15 +11,13 @@ export const project = defineType({
     }),
     defineField({
       name: 'description',
-      type: 'string',
+      type: 'array',
+      of: [{ type: 'block' }],
       validation: (rule) => rule.required(),
     }),
     defineField({
       name: 'image',
       type: 'image',
-      options: {
-        hotspot: true
-      },
       validation: (rule) => rule
         .required()
     }),
