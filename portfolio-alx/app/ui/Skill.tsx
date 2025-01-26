@@ -1,8 +1,10 @@
 import * as motion from "motion/react-client"
 import { urlFor } from "../lib/sanity"
+import { SKILLS_QUERYResult } from "@/sanity.types"
+import Image from 'next/image';
 
 interface skillProps {
-  skill: any
+  skill: SKILLS_QUERYResult[number]
 }
 export default function Skill({ skill }: skillProps) {
   return (
@@ -22,10 +24,13 @@ export default function Skill({ skill }: skillProps) {
       }}
       className="flex items-center justify-center w-[42px] h-[42px] border border-[#666666]/70 rounded-full"
     >
-      <img
-        className='w-[22px] h-[22px]'
+      <Image
         src={urlFor(skill.icon).url()}
-        alt="" />
+        alt="coding technology icon"
+        className=''
+        width={24}
+        height={24}
+      />
     </motion.div>
   )
 }

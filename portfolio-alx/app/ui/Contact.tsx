@@ -7,14 +7,14 @@ import ErrorScreen from "./ErrorScreen";
 const CONTACT_QUERY = defineQuery(`*[_type == 'contactInfo']{phoneNumber, email, location}`);
 
 export default async function Contact() {
-  let contactInfo: any
+  let contactInfo
   try {
     const { data } = await sanityFetch({
       query: CONTACT_QUERY,
     })
     if (data.length === 0) return <EditingScreen sectionTitle="Contacts" />
     contactInfo = data[0]
-  } catch () {
+  } catch {
     return (<ErrorScreen sectionTitle="Contacts" />)
   }
 

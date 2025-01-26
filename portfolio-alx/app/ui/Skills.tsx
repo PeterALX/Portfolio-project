@@ -7,14 +7,14 @@ import ErrorScreen from "./ErrorScreen";
 
 const SKILLS_QUERY = defineQuery("*[_type == 'technology']{icon, name}")
 export default async function Skills() {
-  let skills: Array<any>
+  let skills
   try {
     const { data } = await sanityFetch({
       query: SKILLS_QUERY,
     })
     if (data.length === 0) return <EditingScreen sectionTitle="Skills" />
     skills = data
-  } catch () {
+  } catch {
     return (<ErrorScreen sectionTitle="Skills" />)
   }
   return (

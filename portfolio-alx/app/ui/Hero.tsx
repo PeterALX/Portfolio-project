@@ -9,15 +9,14 @@ import { sanityFetch, urlFor } from '../lib/sanity';
 
 const HERO_QUERY = defineQuery('*[_type=="personalHero"]{title, greeting, image}')
 export default async function Hero() {
-  let heroData: any
-
+  let heroData
   try {
     const { data } = await sanityFetch({
       query: HERO_QUERY,
     })
     if (data.length === 0) return <EditingScreen />
     heroData = data[0]
-  } catch () {
+  } catch {
     return (<ErrorScreen />)
   }
 

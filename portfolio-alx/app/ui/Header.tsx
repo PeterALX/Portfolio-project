@@ -8,14 +8,14 @@ import ErrorHeader from "./ErrorHeader";
 
 const SOCIALS_QUERY = defineQuery(`*[_type == 'social']{title, url}`);
 export default async function Header() {
-  let socials: Array<any>
+  let socials
   try {
     const { data } = await sanityFetch({
       query: SOCIALS_QUERY,
     })
     if (data.length === 0) return <EditingHeader />
     socials = data
-  } catch () {
+  } catch {
     return (<ErrorHeader />)
   }
 

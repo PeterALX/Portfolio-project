@@ -1,5 +1,5 @@
 {
   "path": "../portfolio-alx/app/**/*.{ts,tsx,js,jsx}",
   "schema": "./schema.json",
-  "generates": "../portfolio-alx/sanity/types.ts"
+  "generates": "../portfolio-alx/sanity.types.ts"
 }

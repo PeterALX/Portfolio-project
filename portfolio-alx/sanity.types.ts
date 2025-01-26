@@ -70,7 +70,7 @@ export type Geopoint = {
 
 export type Slug = {
   _type: "slug";
-  current?: string;
+  current: string;
   source?: string;
 };
 
@@ -80,9 +80,9 @@ export type ContactInfo = {
   _createdAt: string;
   _updatedAt: string;
   _rev: string;
-  phoneNumber?: string;
-  email?: string;
-  location?: string;
+  phoneNumber: string;
+  email: string;
+  location: string;
 };
 
 export type Technology = {
@@ -91,8 +91,8 @@ export type Technology = {
   _createdAt: string;
   _updatedAt: string;
   _rev: string;
-  name?: string;
-  icon?: {
+  name: string;
+  icon: {
     asset?: {
       _ref: string;
       _type: "reference";
@@ -111,9 +111,26 @@ export type Project = {
   _createdAt: string;
   _updatedAt: string;
   _rev: string;
-  title?: string;
-  description?: string;
-  image?: {
+  title: string;
+  description: Array<{
+    children?: Array<{
+      marks?: Array<string>;
+      text?: string;
+      _type: "span";
+      _key: string;
+    }>;
+    style?: "normal" | "h1" | "h2" | "h3" | "h4" | "h5" | "h6" | "blockquote";
+    listItem?: "bullet" | "number";
+    markDefs?: Array<{
+      href?: string;
+      _type: "link";
+      _key: string;
+    }>;
+    level?: number;
+    _type: "block";
+    _key: string;
+  }>;
+  image: {
     asset?: {
       _ref: string;
       _type: "reference";
@@ -132,19 +149,8 @@ export type Social = {
   _createdAt: string;
   _updatedAt: string;
   _rev: string;
-  title?: string;
-  url?: string;
-  icon?: {
-    asset?: {
-      _ref: string;
-      _type: "reference";
-      _weak?: boolean;
-      [internalGroqTypeReferenceTo]?: "sanity.imageAsset";
-    };
-    hotspot?: SanityImageHotspot;
-    crop?: SanityImageCrop;
-    _type: "image";
-  };
+  title: string;
+  url: string;
 };
 
 export type PersonalHero = {
@@ -153,9 +159,9 @@ export type PersonalHero = {
   _createdAt: string;
   _updatedAt: string;
   _rev: string;
-  title?: string;
-  greeting?: Array<string>;
-  image?: {
+  title: string;
+  greeting: Array<string>;
+  image: {
     asset?: {
       _ref: string;
       _type: "reference";
@@ -174,9 +180,9 @@ export type Experience = {
   _createdAt: string;
   _updatedAt: string;
   _rev: string;
-  jobTitle?: string;
-  companyName?: string;
-  companyImage?: {
+  jobTitle: string;
+  companyName: string;
+  companyImage: {
     asset?: {
       _ref: string;
       _type: "reference";
@@ -187,8 +193,8 @@ export type Experience = {
     crop?: SanityImageCrop;
     _type: "image";
   };
-  workSummary?: Array<string>;
-  Technologies?: Array<{
+  workSummary: Array<string>;
+  technologies: Array<{
     _ref: string;
     _type: "reference";
     _weak?: boolean;
@@ -205,9 +211,26 @@ export type About = {
   _createdAt: string;
   _updatedAt: string;
   _rev: string;
-  title?: string;
-  body?: string;
-  image?: {
+  title: string;
+  body: Array<{
+    children?: Array<{
+      marks?: Array<string>;
+      text?: string;
+      _type: "span";
+      _key: string;
+    }>;
+    style?: "normal" | "h1" | "h2" | "h3" | "h4" | "h5" | "h6" | "blockquote";
+    listItem?: "bullet" | "number";
+    markDefs?: Array<{
+      href?: string;
+      _type: "link";
+      _key: string;
+    }>;
+    level?: number;
+    _type: "block";
+    _key: string;
+  }>;
+  image: {
     asset?: {
       _ref: string;
       _type: "reference";
@@ -279,21 +302,29 @@ export type SanityImageMetadata = {
 
 export type AllSanitySchemaTypes = SanityImagePaletteSwatch | SanityImagePalette | SanityImageDimensions | SanityFileAsset | Geopoint | Slug | ContactInfo | Technology | Project | Social | PersonalHero | Experience | About | SanityImageCrop | SanityImageHotspot | SanityImageAsset | SanityAssetSourceData | SanityImageMetadata;
 export declare const internalGroqTypeReferenceTo: unique symbol;
-// Source: ../portfolio-alx/app/ui/Contact.tsx
-// Variable: CONTACT_QUERY
-// Query: *[_type == 'contactInfo']{phoneNumber, email, location}
-export type CONTACT_QUERYResult = Array<{
-  phoneNumber: string | null;
-  email: string | null;
-  location: string | null;
-}>;
-
-// Source: ../portfolio-alx/app/ui/Hero.tsx
-// Variable: HERO_QUERY
-// Query: *[_type=="personalHero"]{title, greeting, image}
-export type HERO_QUERYResult = Array<{
-  title: string | null;
-  greeting: Array<string> | null;
+// Source: ../portfolio-alx/app/ui/About.tsx
+// Variable: ABOUT_QUERY
+// Query: *[_type=="about"]{title, body, image}
+export type ABOUT_QUERYResult = Array<{
+  title: string;
+  body: Array<{
+    children?: Array<{
+      marks?: Array<string>;
+      text?: string;
+      _type: "span";
+      _key: string;
+    }>;
+    style?: "blockquote" | "h1" | "h2" | "h3" | "h4" | "h5" | "h6" | "normal";
+    listItem?: "bullet" | "number";
+    markDefs?: Array<{
+      href?: string;
+      _type: "link";
+      _key: string;
+    }>;
+    level?: number;
+    _type: "block";
+    _key: string;
+  }>;
   image: {
     asset?: {
       _ref: string;
@@ -304,14 +335,145 @@ export type HERO_QUERYResult = Array<{
     hotspot?: SanityImageHotspot;
     crop?: SanityImageCrop;
     _type: "image";
-  } | null;
+  };
+}>;
+
+// Source: ../portfolio-alx/app/ui/Contact.tsx
+// Variable: CONTACT_QUERY
+// Query: *[_type == 'contactInfo']{phoneNumber, email, location}
+export type CONTACT_QUERYResult = Array<{
+  phoneNumber: string;
+  email: string;
+  location: string;
+}>;
+
+// Source: ../portfolio-alx/app/ui/Experience.tsx
+// Variable: EXPERIENCE_QUERY
+// Query: *[_type == 'experience']{  jobTitle,    companyName,    companyImage,    workSummary,    startYear,    endYear,  "technologies":technologies[]->{name, icon}}
+export type EXPERIENCE_QUERYResult = Array<{
+  jobTitle: string;
+  companyName: string;
+  companyImage: {
+    asset?: {
+      _ref: string;
+      _type: "reference";
+      _weak?: boolean;
+      [internalGroqTypeReferenceTo]?: "sanity.imageAsset";
+    };
+    hotspot?: SanityImageHotspot;
+    crop?: SanityImageCrop;
+    _type: "image";
+  };
+  workSummary: Array<string>;
+  startYear: number | null;
+  endYear: number | null;
+  technologies: Array<{
+    name: string;
+    icon: {
+      asset?: {
+        _ref: string;
+        _type: "reference";
+        _weak?: boolean;
+        [internalGroqTypeReferenceTo]?: "sanity.imageAsset";
+      };
+      hotspot?: SanityImageHotspot;
+      crop?: SanityImageCrop;
+      _type: "image";
+    };
+  }>;
+}>;
+
+// Source: ../portfolio-alx/app/ui/Header.tsx
+// Variable: SOCIALS_QUERY
+// Query: *[_type == 'social']{title, url}
+export type SOCIALS_QUERYResult = Array<{
+  title: string;
+  url: string;
+}>;
+
+// Source: ../portfolio-alx/app/ui/Hero.tsx
+// Variable: HERO_QUERY
+// Query: *[_type=="personalHero"]{title, greeting, image}
+export type HERO_QUERYResult = Array<{
+  title: string;
+  greeting: Array<string>;
+  image: {
+    asset?: {
+      _ref: string;
+      _type: "reference";
+      _weak?: boolean;
+      [internalGroqTypeReferenceTo]?: "sanity.imageAsset";
+    };
+    hotspot?: SanityImageHotspot;
+    crop?: SanityImageCrop;
+    _type: "image";
+  };
+}>;
+
+// Source: ../portfolio-alx/app/ui/Projects.tsx
+// Variable: PROJECTS_QUERY
+// Query: *[_type == 'project']{title, description, image}
+export type PROJECTS_QUERYResult = Array<{
+  title: string;
+  description: Array<{
+    children?: Array<{
+      marks?: Array<string>;
+      text?: string;
+      _type: "span";
+      _key: string;
+    }>;
+    style?: "blockquote" | "h1" | "h2" | "h3" | "h4" | "h5" | "h6" | "normal";
+    listItem?: "bullet" | "number";
+    markDefs?: Array<{
+      href?: string;
+      _type: "link";
+      _key: string;
+    }>;
+    level?: number;
+    _type: "block";
+    _key: string;
+  }>;
+  image: {
+    asset?: {
+      _ref: string;
+      _type: "reference";
+      _weak?: boolean;
+      [internalGroqTypeReferenceTo]?: "sanity.imageAsset";
+    };
+    hotspot?: SanityImageHotspot;
+    crop?: SanityImageCrop;
+    _type: "image";
+  };
+}>;
+
+// Source: ../portfolio-alx/app/ui/Skills.tsx
+// Variable: SKILLS_QUERY
+// Query: *[_type == 'technology']{icon, name}
+export type SKILLS_QUERYResult = Array<{
+  icon: {
+    asset?: {
+      _ref: string;
+      _type: "reference";
+      _weak?: boolean;
+      [internalGroqTypeReferenceTo]?: "sanity.imageAsset";
+    };
+    hotspot?: SanityImageHotspot;
+    crop?: SanityImageCrop;
+    _type: "image";
+  };
+  name: string;
 }>;
 
 // Query TypeMap
 import "@sanity/client";
 declare module "@sanity/client" {
   interface SanityQueries {
+    "*[_type==\"about\"]{title, body, image}": ABOUT_QUERYResult;
     "*[_type == 'contactInfo']{phoneNumber, email, location}": CONTACT_QUERYResult;
+    "*[_type == 'experience']{\n  jobTitle,\n    companyName,\n    companyImage,\n    workSummary,\n    startYear,\n    endYear,\n  \"technologies\":technologies[]->{name, icon}\n}": EXPERIENCE_QUERYResult;
+    "*[_type == 'social']{title, url}": SOCIALS_QUERYResult;
     "*[_type==\"personalHero\"]{title, greeting, image}": HERO_QUERYResult;
+    "*[_type == 'project']{title, description, image}": PROJECTS_QUERYResult;
+    "*[_type == 'technology']{icon, name}": SKILLS_QUERYResult;
   }
 }

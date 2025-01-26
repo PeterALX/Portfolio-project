@@ -1,10 +1,12 @@
 import * as motion from "motion/react-client"
 import Image from "next/image"
 import { urlFor } from "../lib/sanity"
+import { EXPERIENCE_QUERYResult } from "@/sanity.types"
 
 interface experienceCardProps {
-  experience: any
+  experience: EXPERIENCE_QUERYResult[number]
 }
+
 export default function ExperienceCard({ experience }: experienceCardProps) {
   const iconSize = 17
   return (
@@ -33,7 +35,7 @@ export default function ExperienceCard({ experience }: experienceCardProps) {
           <p className="font-light text-[12px] mt-1">{experience.companyName}</p>
           <div className="flex space-x-2 my-3 ">
             {
-              experience.technologies.map((technology: any, idx: number) => // bad, fix with types
+              experience.technologies.map((technology, idx: number) =>
                 <Image
                   key={idx}
                   src={urlFor(technology.icon).url()}
@@ -53,7 +55,7 @@ export default function ExperienceCard({ experience }: experienceCardProps) {
       </div>
       <ul className="list-disc text-[12px] space-y-2 marker:text-[#666666] text-[#eddddd]">
         {
-          experience.workSummary.map((point: any, idx: number) => // bad, fix with types
+          experience.workSummary.map((point, idx: number) =>
             <li key={idx}>{point}</li>
           )
         }

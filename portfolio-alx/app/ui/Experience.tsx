@@ -17,14 +17,14 @@ const EXPERIENCE_QUERY = defineQuery(
 }`
 )
 export default async function Experience() {
-  let experiences: Array<any>
+  let experiences
   try {
     const { data } = await sanityFetch({
       query: EXPERIENCE_QUERY,
     })
     if (data.length === 0) return <EditingScreen sectionTitle="Experience" />
     experiences = data
-  } catch () {
+  } catch {
     return (<ErrorScreen sectionTitle="Experience" />)
   }
   return (

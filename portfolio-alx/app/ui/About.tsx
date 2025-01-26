@@ -6,14 +6,14 @@ import ErrorScreen from "./ErrorScreen"
 
 const ABOUT_QUERY = defineQuery('*[_type=="about"]{title, body, image}')
 export default async function About() {
-  let aboutMe: any
+  let aboutMe
   try {
     const { data } = await sanityFetch({
       query: ABOUT_QUERY,
     })
     if (data.length === 0) return <EditingScreen sectionTitle="About" />
     aboutMe = data[0]
-  } catch () {
+  } catch {
     return (<ErrorScreen sectionTitle="About" />)
   }
   return (
