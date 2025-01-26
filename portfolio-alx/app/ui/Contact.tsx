@@ -26,7 +26,7 @@ export default async function Contact() {
       <div className="flex flex-col items-center mt-24 px-10" >
         <h4 className="text-center font-semibold space-y-10 mb-4">
           I have got just what you need, <br />
-          <span className="decoration-[#28E98C]/70 underline">let's talk</span>
+          <span className="decoration-[#28E98C]/70 underline">let&apos;s talk</span>
         </h4>
         <div className="flex space-x-2 items-center">
           <PhoneIcon className="h-5 w-5 text-[#28E98C]/70 animate-pulse" />
