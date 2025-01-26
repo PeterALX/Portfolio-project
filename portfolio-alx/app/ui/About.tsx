@@ -13,7 +13,7 @@ export default async function About() {
     })
     if (data.length === 0) return <EditingScreen sectionTitle="About" />
     aboutMe = data[0]
-  } catch (error) {
+  } catch () {
     return (<ErrorScreen sectionTitle="About" />)
   }
   return (

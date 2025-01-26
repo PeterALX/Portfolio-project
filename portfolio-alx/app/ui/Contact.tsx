@@ -14,7 +14,7 @@ export default async function Contact() {
     })
     if (data.length === 0) return <EditingScreen sectionTitle="Contacts" />
     contactInfo = data[0]
-  } catch (error) {
+  } catch () {
     return (<ErrorScreen sectionTitle="Contacts" />)
   }
 

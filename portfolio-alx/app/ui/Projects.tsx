@@ -13,7 +13,7 @@ export default async function Projects() {
     })
     if (data.length === 0) return <EditingScreen sectionTitle="Projects" />
     projects = data
-  } catch (error) {
+  } catch () {
     return (<ErrorScreen sectionTitle="Projects" />)
   }
 

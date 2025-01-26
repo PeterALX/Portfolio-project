@@ -15,7 +15,7 @@ export default async function Header() {
     })
     if (data.length === 0) return <EditingHeader />
     socials = data
-  } catch (error) {
+  } catch () {
     return (<ErrorHeader />)
   }
 

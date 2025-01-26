@@ -24,7 +24,7 @@ export default async function Experience() {
     })
     if (data.length === 0) return <EditingScreen sectionTitle="Experience" />
     experiences = data
-  } catch (error) {
+  } catch () {
     return (<ErrorScreen sectionTitle="Experience" />)
   }
   return (

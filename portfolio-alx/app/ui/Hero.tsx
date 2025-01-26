@@ -17,7 +17,7 @@ export default async function Hero() {
     })
     if (data.length === 0) return <EditingScreen />
     heroData = data[0]
-  } catch (error) {
+  } catch () {
     return (<ErrorScreen />)
   }
 

@@ -14,7 +14,7 @@ export default async function Skills() {
     })
     if (data.length === 0) return <EditingScreen sectionTitle="Skills" />
     skills = data
-  } catch (error) {
+  } catch () {
     return (<ErrorScreen sectionTitle="Skills" />)
   }
   return (
