@@ -18,6 +18,7 @@ export async function POST(req: NextRequest) {
 			return new Response("Bad Request", { status: 400 });
 		}
 		// body holds info about the tag to revalidate, use it to revalidate the specific data?
+		console.log(req)
 		console.log(body._type)
 		revalidateTag(body._type);
 		return NextResponse.json({
