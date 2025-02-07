@@ -9,7 +9,7 @@ export async function POST(req: NextRequest) {
 			_type: string;
 			slug?: string | undefined;
 		}>(req, hookSecret);
-		// check if req is from sanity webhook
+		// check if req is from a sanity webhook
 		if (!isValidSignature) {
 			return new Response("Invalid Signature", { status: 401 });
 		}
@@ -18,7 +18,6 @@ export async function POST(req: NextRequest) {
 			return new Response("Bad Request", { status: 400 });
 		}
 		// body holds info about the tag to revalidate, use it to revalidate the specific data?
-		console.log(body)
 		revalidateTag(body._type);
 		return NextResponse.json({
 			status: 200,
@@ -28,6 +27,7 @@ export async function POST(req: NextRequest) {
 		});
 
 	} catch (error: unknown) {
+		console.log("makosa imefanyika mkubwa: ")
 		console.error(error);
 		if (error instanceof Error) {
 			return new Response(error.message, { status: 500 });
