@@ -21,17 +21,16 @@ export default async function Hero() {
   }
 
   return (
-    <div className='h-screen flex flex-col space-y-8 items-center justify-center text-center overflow-hidden' >
-      <BackgroundCircles />
+    <div className='relative h-screen max-h-screen flex flex-col space-y-[48px] items-center justify-start text-center overflow-hidden pt-[192px] px-[24px] ' >
       <Image
         src={urlFor(heroData.image).url()}
         alt="Screenshots of the dashboard project showing desktop version"
-        className='rounded-full mb-10'
+        className='rounded-full'
         width={70}
         height={70}
       />
-      <div className='z-20 flex flex-col items-center justify-center' >
-        <h2 className='md:text-xs uppercase text-gray-500 pb-2 tracking-[15px]'>{heroData.title}</h2>
+      <div className='z-20 flex flex-col items-center justify-center space-y-[24px]' >
+        <h2 className='text-xs uppercase text-gray-500 tracking-[15px]'>{heroData.title}</h2>
         <Typewriter words={heroData.greeting} />
         <div>
           <Link href='#about'>
@@ -48,6 +47,7 @@ export default async function Hero() {
           </Link>
         </div>
       </div>
-    </div>
+      <BackgroundCircles />
+    </div >
   )
 }

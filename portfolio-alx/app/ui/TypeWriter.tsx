@@ -11,7 +11,7 @@ export default function Typewriter({ words }: t_TypewriterProps) {
     delaySpeed: 2000
   })
   return (
-    <h1 className='text-2xl lg:tex6xl font-semibold px-10'>
+    <h1 className='text-[20px] lg:tex6xl font-semibold '>
       <span className='mr-3'>{text}</span>
       <Cursor cursorColor='#f7ab0a' />
     </h1>

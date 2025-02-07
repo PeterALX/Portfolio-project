@@ -22,11 +22,12 @@ export default async function Header() {
   const socialIconStyle = {
     width: "48px",
     height: "48px",
+    //border: '1px solid'
   }
   return (
-    <header className="sticky top-0 flex items-start justify-between max-w-7xl mx-auto xl:items-center p-5 px-0 md:px-32 xl:px-52 z-20" >
+    <header className="sticky top-0 flex items-start justify-between max-w-7xl  xl:items-center py-5 md:px-32 xl:px-52 z-20 mx-[14px]" >
       <motion.div
-        className="flex flex-row items-center borde"
+        className="flex flex-row items-center "
         initial={{
           x: -500,
           opacity: 0,

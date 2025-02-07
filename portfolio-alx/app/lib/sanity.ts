@@ -10,7 +10,7 @@ const client = createClient({
 	useCdn: false,
 });
 
-const builder = imageUrlBuilder(client.withConfig({ apiVersion: "2024-11-01" }))
+const builder = imageUrlBuilder(client)
 function urlFor(source: SanityImageSource) {
 	return builder.image(source)
 }
