@@ -29,6 +29,9 @@ export async function POST(req: NextRequest) {
 
 	} catch (error: any) {
 		console.error(error);
-		return new Response(error.message, { status: 500 });
+		if (error instanceof Error) {
+			return new Response(error.message, { status: 500 });
+		}
+		return new Response(String(error), { status: 500 });
 	}
 }
